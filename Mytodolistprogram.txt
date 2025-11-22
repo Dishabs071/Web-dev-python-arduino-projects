@@ -1,0 +1,54 @@
+tandd={}
+ptd={}
+wptd={}
+while True:
+    print('To Do List'.center(25,'*'))
+    print('1.Add Tasks')
+    print('2.View Task')
+    print('3.Mark task as completed')
+    print('4.Check the date of task completion')
+    print('5.Exit')
+    choice=int(input('Enter your choice between 1-5:'))
+    if(choice==1):
+        print('Enter the task to be completed:')
+        task_name=input()
+        print("Enter the date of task completion:")
+        date=input()
+        tandd[task_name]=date
+        print('Enter the priority of task,i,.e,low,medium or high:')
+        priority=input()
+        ptd[priority]=tandd
+        print('Enter the task category.i,e.,Work or Personal:')
+        category=input()
+        wptd[category]=ptd
+    if(choice==2):
+       print('View tasks based on category or priority? ')
+       view=input()
+       if(view=='category'):
+           print('Enter task category(Work or Personal):')
+           taskcat=input()
+           if(taskcat=='Work'):
+               print('Work:',wptd[taskcat])
+           else:
+               print('Personal:',wptd[taskcat])
+       elif(view=='priority'):
+           print('Enter priority of task(low,medium,high):')
+           priortask=input()
+           if(priortask=='low'):
+               print('low:',ptd[priortask])
+           elif(priortask=='medium'):
+               print('medium:',ptd[priortask])
+           else:
+               print('high:',ptd[priortask])
+       else:
+           print('Wrong input')
+    if(choice==3):
+        print('Enter task to be marked as completed')
+        tmc=input()
+        print(tmc,'task is marked as completed')
+    if(choice==4):
+        print('Enter the task whose date of completion has to be checked:')
+        taskdate=input()
+        print(tandd[taskdate])
+    if(choice==5):
+        break
